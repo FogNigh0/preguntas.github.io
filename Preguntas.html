@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffebf0;
+            flex-direction: column;
+            background-image: url(background.jpg);
+            font-family: Arial, sans-serif;
+        }
+
+        iframe {
+            width: 90%;
+            max-width: 600px;
+            height: 700px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .back {
+            background-color: #ff4d6d;
+            color: white;
+            width: 150px;
+            height: 50px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .back:hover {
+            background-color: #ff1a4d;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Responde estas preguntas 💖</h1>
+
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeQqI2dZQmWm-LnEMgkhKocA9J2EJ4L45_cp4EnW32C57t17w/viewform?usp=dialog"></iframe>
+
+    <button class="back" onclick="goBack()">Volver</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1>¿Quieres ser mi San Valentín? ❤️ :3</h1>
+    <img id="valentineImage" src="punpun_sentado.png" alt="San Valentín">
+
+    <div class="buttons">
+        <button class="yes" onclick="changeImage('yes')">Sí</button>
+        <button class="no" onclick="changeImage('no')">No</button>
+    </div>
+
+    <button class="reset" onclick="resetImage()">Volver</button>
+
+    <!-- Botón de preguntas (oculto al inicio) -->
+    <button id="questionsButton" class="questions" style="display: none;" onclick="goToForm()">Preguntas</button>
+
+    <script>
+        function changeImage(response) {
+            let image = document.getElementById("valentineImage");
+            let noButton = document.querySelector(".no");
+            let yesButton = document.querySelector(".yes");
+            let questionsButton = document.getElementById("questionsButton");
+
+            if (response === "yes") {
+                image.src = "punpun_beso.png"; // Imagen si dice Sí
+                noButton.style.display = "none"; // Ocultar botón "No"
+                yesButton.style.display = "none"; // Ocultar botón "Sí"
+                questionsButton.style.display = "block"; // Mostrar botón "Preguntas"
+            } else {
+                image.src = "punpun_Sad.png"; // Imagen si dice No
+            }
+        }
+        function resetImage() {
+            let image = document.getElementById("valentineImage");
+            image.src = "punpun_sentado.png"; // Imagen original
+            form.style.display = "none"; // Ocultar formulario
+        }
+
+        function goToForm() {
+            window.location.href = "Preguntas.html"; // Redirige a otra vista con el formulario
+        }
+    </script>
+
+</body>
+</html>

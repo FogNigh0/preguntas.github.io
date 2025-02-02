@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-image: url('https://i.pinimg.com/originals/5a/2f/3b/5a2f3b9c512f4cb06ae0d6f9c98160f4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            width: 120px;
+            height: 50px;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        .yes:hover {
+            background-color: #ff1a4d;
+        }
+
+        .no {
+            background-color: #444;
+            color: white;
+        }
+
+        .no:hover {
+            background-color: #222;
+        }
+
+        /* Botón de reinicio */
+        .reset {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            width: 120px;
+            height: 50px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .reset:hover {
+            background-color: #0056b3;
+        }
+
+        /* Formulario */
+        .form-container {
+            display: none;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(255, 0, 76, 0.8);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -55%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        .form-container input, .form-container textarea {
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+        }
+
+        .form-container button {
+            margin-top: 10px;
+            background-color: #ff4d6d;
+            color: white;
+            width: 100%;
+        }
+
+        .form-container button:hover {
+            background-color: #ff1a4d;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¿Quieres ser mi San Valentín? ❤️</h1>
+    <img id="valentineImage" src="https://i.pinimg.com/originals/9b/d6/c5/9bd6c52.gif" alt="San Valentín">
+
+    <div class="buttons">
+        <button class="yes" onclick="changeImage('yes')">Sí</button>
+        <button class="no" onclick="changeImage('no')">No</button>
+    </div>
+
+    <button class="reset" onclick="resetImage()">Reiniciar</button>
+
+    <!-- Formulario -->
+    <div id="googleFormContainer" style="display: none; margin-top: 20px;">
+        <iframe src="https://forms.gle/Wz8EGBncfBrUnj9v5" 
+                width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">
+            Cargando…
+        </iframe>
+    </div>
+
+    <script>
+        function changeImage(response) {
+            let image = document.getElementById("valentineImage");
+            let googleForm = document.getElementById("googleFormContainer");
+
+            if (response === "yes") {
+                image.src = "https://i.pinimg.com/originals/7c/6f/1b/7c6f1b9242e77f13e95fefb26c57d466.gif"; // Imagen si dice Sí
+                form.style.display = "flex"; // Mostrar formulario
+            } else {
+                image.src = "https://i.pinimg.com/originals/46/61/ea/4661eab2c516d5fa7ee6a3b69b5d43fc.gif"; // Imagen si dice No
+                form.style.display = "none"; // Ocultar formulario si dice No
+            }
+        }
+
+        function resetImage() {
+            let image = document.getElementById("valentineImage");
+            let form = document.getElementById("formContainer");
+
+            image.src = "https://i.pinimg.com/originals/9b/d6/c5/9bd6c52.gif"; // Imagen original
+            form.style.display = "none"; // Ocultar formulario
+        }
+
+        function submitForm() {
+            alert("¡Gracias por completar el formulario! 💖");
+            document.getElementById("formContainer").style.display = "none"; // Ocultar después de enviar
+        }
+    </script>
+
+</body>
+</html>
